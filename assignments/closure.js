@@ -3,14 +3,23 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
-const MyHouse = (address) => {
+
+const myHouse = function(address) {
   const inLivingRoom = `Love this house which is located at ${address}`;
-  const room1 = (room) =>{
-    const inBedRoom = `Love this bed which is inside ${room}`;
-    return `I ${inBedRoom} and ${inLivingRoom}`;
+  const room1 = function(room) {
+    const inRoom = `Love this bed which is inside ${room}`;
+    console.log (`I ${inRoom} and I ${inLivingRoom}`)
   }
-  console.log(bedRoom());
+  room1(bedroom);
 };
+console.log(myHouse);
+// let house = function(adress) {
+//   const inLivingRoom = `Love this house which is located at ${address}`;
+//   let room1 = function()
+// }
+
+
+
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 

@@ -69,19 +69,19 @@ function multiply(x, y) {
 }
 console.log(sumNums(8, 2, multiply));
 // ---------------------------------------------------
-function contains(item, list, cb) {
+function contains(itemWeAreChecking, arrayWeAreLookingIn, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  return cb(list.item)
+  if (arrayWeAreLookingIn.includes(itemWeAreChecking)) {
+    return cb(true);
+  } else {
+    return cb(false);
+  }
 }
 
-let  check = (item, list) =>{
-  if (list.includes(item)) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const  testItem = contains("Pencil", items, callback => callback)
+
+console.log(testItem);
 // console.log(contains('Pencil', items, check));
 /* STRETCH PROBLEM */
 
