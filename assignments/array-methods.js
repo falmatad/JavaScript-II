@@ -58,28 +58,58 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
+runners.forEach(function(name) {
+  fullNames.push(`${name.first_name} ${name.last_name}`)
+});
+
 console.log(fullNames);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
+fullNames.map(function(name) {
+  firstNamesAllCaps.push(name.toUpperCase())
+});
 console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = [];
+let runnersLargeSizeShirt = 
+runners.filter(function(name) {
+  return name.shirt_size === "L";
+})
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal =
+runners.reduce(function(accumulator, item) {
+return accumulator + item.donation;
+}, 0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// we could have a problem where we want to display the company name next to their respective donation amoount. For this we can use:
+let companyDonation = [];
+runners.forEach(function(name) {
+  companyDonation.push(`${name.company_name} has donated $${name.donation}`)
+});
 
+console.log(companyDonation);
 // Problem 2
+// we could have a problem where we can turn the company name into upperCase on the website. For this we will use .map() like so:
+let upperCaseCompany = [];
+runners.map(function(name) {
+ upperCaseCompany.push(name.company_name.toUpperCase());
+});
 
+console.log(upperCaseCompany);
 // Problem 3
+// We could have a problem where we cant to have array of only students. We can do this m filtering emails that contain a .edu domain:
+studentList = runners.filter(function(name) {
+  return name.email.includes('.edu');
+});
+console.log(studentList);
