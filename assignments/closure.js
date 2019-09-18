@@ -4,6 +4,19 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function house(address){
+  const numberOfRooms = 5;
+console.log(`This house is located at ${address}`);
+
+  function room1(room){
+    const location = "to the left of the stairs";
+    console.log(`This house has ${numberOfRooms} rooms and the ${room} is one of them. It is located ${location}`);
+  }  // this closes the room
+  room1("bedroom");
+} // this closes the house
+house('11375 westwind drive');
+
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
