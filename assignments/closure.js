@@ -4,19 +4,17 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
-const myHouse = function(address) {
-  const inLivingRoom = `Love this house which is located at ${address}`;
-  const room1 = function(room) {
-    const inRoom = `Love this bed which is inside ${room}`;
-    console.log (`I ${inRoom} and I ${inLivingRoom}`)
-  }
-  room1(bedroom);
-};
-console.log(myHouse);
-// let house = function(adress) {
-//   const inLivingRoom = `Love this house which is located at ${address}`;
-//   let room1 = function()
-// }
+function house(address){
+  const numberOfRooms = 5;
+console.log(`This house is located at ${address}`);
+
+  function room1(room){
+    const location = "to the left of the stairs";
+    console.log(`This house has ${numberOfRooms} rooms and the ${room} is one of them. It is located ${location}`);
+  }  // this closes the room
+  room1("bedroom");
+} // this closes the house
+house('11375 westwind drive');
 
 
 
